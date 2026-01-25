@@ -1,0 +1,28 @@
+/* [project]/src/app/globals.css [app-client] (css) */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  flex-direction: column;
+  display: flex;
+}
+
+main {
+  flex-direction: column;
+  flex: 1;
+  display: flex;
+}
+
+.home {
+  flex-direction: column;
+  min-height: 100vh;
+  display: flex;
+}
+
+.home > footer {
+  margin-top: auto;
+}
+
+/*# sourceMappingURL=src_app_globals_css_bad6b30c._.single.css.map*/

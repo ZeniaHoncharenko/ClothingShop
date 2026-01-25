@@ -1,0 +1,29 @@
+.signin {
+  background-color: rgb(243, 243, 243);
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+.signin-card {
+  display: flex;
+  flex-flow: column;
+  margin-top: -20vh;
+  background-color: white;
+  width: 400px;
+  height: fit-content;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.signin-card h1 {
+  text-align: center;
+  padding-top: 1rem;
+}
+
+form {
+  display: flex;
+  flex-flow: column;
+  padding: 2rem;
+  gap: 1rem;
+}

@@ -1,0 +1,32 @@
+/* [project]/src/app/(auth)/signin/signin.css [app-client] (css) */
+.signin {
+  background-color: #f3f3f3;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.signin-card {
+  background-color: #fff;
+  flex-flow: column;
+  width: 400px;
+  height: fit-content;
+  margin-top: -20vh;
+  display: flex;
+  box-shadow: 0 3px 10px #0000001a;
+}
+
+.signin-card h1 {
+  text-align: center;
+  padding-top: 1rem;
+}
+
+form {
+  flex-flow: column;
+  gap: 1rem;
+  padding: 2rem;
+  display: flex;
+}
+
+/*# sourceMappingURL=src_app_%28auth%29_signin_signin_187e877f.css.map*/

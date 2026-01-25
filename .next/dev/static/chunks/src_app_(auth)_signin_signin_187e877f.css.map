@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/irosh/Documents/ClothingShop/clothing-store/src/app/%28auth%29/signin/signin.css"],"sourcesContent":[".signin {\r\n  background-color: rgb(243, 243, 243);\r\n  display: flex;\r\n  flex: 1;\r\n  justify-content: center;\r\n  align-items: center;\r\n}\r\n\r\n.signin-card {\r\n  display: flex;\r\n  flex-flow: column;\r\n  margin-top: -20vh;\r\n  background-color: white;\r\n  width: 400px;\r\n  height: fit-content;\r\n  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);\r\n}\r\n\r\n.signin-card h1 {\r\n  text-align: center;\r\n  padding-top: 1rem;\r\n}\r\n\r\nform {\r\n  display: flex;\r\n  flex-flow: column;\r\n  padding: 2rem;\r\n  gap: 1rem;\r\n}\r\n"],"names":[],"mappings":"AAAA;;;;;;;;AAQA;;;;;;;;;;AAUA;;;;;AAKA"}}]
+}

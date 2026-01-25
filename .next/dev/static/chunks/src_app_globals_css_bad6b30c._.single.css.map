@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/src/app/globals.css"],"sourcesContent":["html,\nbody {\n  height: 100%;\n  margin: 0;\n}\n\nbody {\n  display: flex;\n  flex-direction: column;\n}\n\nmain {\n  flex: 1;\n  display: flex;\n  flex-direction: column;\n}\n\n.home {\n  display: flex;\n  flex-direction: column;\n  min-height: 100vh;\n}\n\n.home > footer {\n  margin-top: auto;\n}\n"],"names":[],"mappings":"AAAA;;;;;AAMA;;;;;AAKA;;;;;;AAMA;;;;;;AAMA"}}]
+}
