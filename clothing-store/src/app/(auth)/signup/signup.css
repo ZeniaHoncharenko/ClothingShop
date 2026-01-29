@@ -1,4 +1,4 @@
-.signin {
+.signup {
   background-color: rgb(243, 243, 243);
   display: flex;
   flex: 1;
@@ -6,24 +6,107 @@
   align-items: center;
 }
 
-.signin-card {
+.signup-card {
   display: flex;
   flex-flow: column;
   margin-top: -20vh;
   background-color: white;
-  width: 400px;
+  width: 500px;
   height: fit-content;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
-.signin-card h1 {
+.signup-card h1 {
   text-align: center;
   padding-top: 1rem;
 }
 
-form {
+.signup-card form {
   display: flex;
   flex-flow: column;
+  align-items: center;
   padding: 2rem;
   gap: 1rem;
+}
+
+.signup-card form * {
+  width: 100%;
+  align-items: center;
+}
+
+.signup-card input {
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 12px 16px;
+  font-size: 14px;
+  width: 100%;
+  height: auto;
+  transition: all 0.2s ease;
+  outline: none;
+  margin-bottom: 10px;
+}
+
+.signup-card input:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.signup-card input::placeholder {
+  color: #9ca3af;
+}
+
+.signup-card input:hover {
+  border-color: #d1d5db;
+}
+
+/* links styles */
+.signup-card a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.signup-card a:hover {
+  color: blue;
+}
+
+.signup-card button {
+  appearance: none;
+  background-color: #000000;
+  border: 2px solid #1a1a1a;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-height: 60px;
+  min-width: 0;
+  outline: none;
+  padding: 16px 24px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+  will-change: transform;
+}
+
+.signup-card button:disabled {
+  pointer-events: none;
+}
+
+.signup-card button:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.signup-card button:active {
+  box-shadow: none;
+  transform: translateY(0);
 }

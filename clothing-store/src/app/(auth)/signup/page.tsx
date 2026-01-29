@@ -2,29 +2,55 @@
 
 import Link from "next/link";
 import "./signup.css";
-import { signIn } from "@/actions/auth";
+import { signUp } from "@/actions/auth";
+import { toast } from "sonner";
 
 export default function SignUpPage() {
-  async function handleSignIn(formData: FormData) {
-    await signIn(formData);
+  async function handleSignUp(formData: FormData) {
+    const res = await signUp(formData);
+    if (res.success) {
+      toast.success(res.message || "Signed up successfully");
+    } else {
+      toast.error(res.message || "Sign up failed", {
+        description: "Sign up failed",
+      });
+    }
   }
   return (
-    <div className="signin">
-      <div className="signin-card">
-        <h1>Registration</h1>
+    <div className="signup">
+      <div className="signup-card">
+        <h1>Create a new account</h1>
 
-        <form action={handleSignIn}>
-          <label htmlFor="email">Email</label>
-          <input type="email" name="email" id="email" required />
-          <label htmlFor="password">Password</label>
-          <input type="password" name="password" id="password" required />
+        <form action={handleSignUp}>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Enter user email"
+            required
+          />
+          <input
+            type="email"
+            name="email confirm"
+            id="email confirm"
+            placeholder="Confirm the email"
+            required
+          />
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Pasword"
+            required
+          />
 
-          <div className="signin-button">
-            <button type="submit">Sign In</button>
+          <div className="signup-button">
+            <button type="submit">Create</button>
           </div>
 
-          <div className="signin-register-link">
-            <Link href="/signup">Make a new account</Link>
+          <div className="signup-register-link">
+            Already have and account?
+            <Link href="/signin"> Sign In</Link>
           </div>
         </form>
       </div>

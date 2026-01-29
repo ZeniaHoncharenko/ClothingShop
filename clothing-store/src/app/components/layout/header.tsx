@@ -1,5 +1,6 @@
 import Image from "next/image";
 import "./header.css";
+import Link from "next/link";
 
 export default function Header() {
   return (
@@ -46,12 +47,14 @@ export default function Header() {
           </div>
           <div className="user-account-short">
             <span className="user-icon">
-              <Image
-                src="/user_account_icon.png"
-                alt="User Account"
-                width={20}
-                height={20}
-              />
+              <Link href="/signin">
+                <Image
+                  src="/user_account_icon.png"
+                  alt="User Account"
+                  width={20}
+                  height={20}
+                />
+              </Link>
             </span>
           </div>
         </div>

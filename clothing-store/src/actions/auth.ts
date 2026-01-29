@@ -1,10 +1,15 @@
 "use server";
 
 import { z } from "zod";
-import { login } from "../lib/auth";
+import { login, registration, validateEmail } from "../lib/auth";
 import { redirect } from "next/navigation";
 
 const SignInSchema = z.object({
+  email: z.string().email(),
+  password: z.string().min(6),
+});
+
+const SignUpSchema = z.object({
   email: z.string().email(),
   password: z.string().min(6),
 });
@@ -43,6 +48,47 @@ export async function signIn(formData: FormData): Promise<ActionResponse> {
   }
 
   redirect("/dashboard");
+  return {
+    success: true,
+    message: "Signed in successfully",
+  };
+}
+
+export async function signUp(formData: FormData): Promise<ActionResponse> {
+  const data = {
+    email: formData.get("email") as string,
+    emainConfirm: formData.get("email-confirm") as string,
+    password: formData.get("password") as string,
+  };
+
+  const validationResult = SignUpSchema.safeParse(data);
+
+  if (!validationResult.success) {
+    return {
+      success: false,
+      message: "Validation failed",
+      errors: validationResult.error.flatten().fieldErrors,
+    };
+  }
+
+  if (!validateEmail(data.email, data.emainConfirm)) {
+    return {
+      success: false,
+      message: "Emails are different",
+    };
+  }
+
+  const result = await registration(data.email, data.password);
+
+  if (!result.success) {
+    return {
+      success: false,
+      message: result.message,
+      error: result.error,
+    };
+  }
+
+  redirect("/signin");
   return {
     success: true,
     message: "Signed in successfully",

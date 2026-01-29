@@ -3,6 +3,7 @@ import { cache } from "react";
 import { compare, hash } from "bcrypt";
 import { cookies } from "next/headers";
 import { prisma } from "./prisma";
+import { createNewUser, getUserByEmail } from "./dal";
 
 if (!process.env.JWT_SECRET) {
   throw new Error("JWT_SECRET is not defined in .env");
@@ -24,6 +25,13 @@ export async function comparePassword(
   hashedPassword: string,
 ) {
   return compare(password, hashedPassword);
+}
+
+export function validateEmail(email: string, emailConfirm: string) {
+  if (email !== emailConfirm) {
+    return true;
+  }
+  return false;
 }
 
 export async function verifyJWT(token: string): Promise<JWTPayload | null> {
@@ -62,24 +70,6 @@ export const getSession = cache(async () => {
   }
 });
 
-export const getUserByEmail = cache(async (email: string) => {
-  try {
-    return await prisma.user.findUnique({
-      where: { email },
-      select: {
-        id: true,
-        email: true,
-        password: true,
-        name: true,
-        roleId: true,
-      },
-    });
-  } catch (error) {
-    console.error("Error getting user by email:", error);
-    return null;
-  }
-});
-
 async function createJWT(userId: number): Promise<string> {
   return await new jose.SignJWT({ userId: String(userId) })
     .setProtectedHeader({ alg: "HS256" })
@@ -93,7 +83,7 @@ export async function login(email: string, password: string) {
   if (!user) {
     return {
       success: false,
-      message: "Пользователь не найден",
+      message: "Account was not found, pls try again",
       error: "USER_NOT_FOUND",
     };
   }
@@ -102,8 +92,8 @@ export async function login(email: string, password: string) {
   if (!isValid) {
     return {
       success: false,
-      message: "Неверный пароль",
-      error: "INVALID_PASSWORD",
+      message: "Wrong email or password, please try again",
+      error: "IINVALID_EMAIL_OR_PASSWORD",
     };
   }
 
@@ -113,17 +103,38 @@ export async function login(email: string, password: string) {
     httpOnly: true,
     path: "/",
     sameSite: "lax",
-    maxAge: 60 * 60 * 24 * 7, // 7 дней
+    maxAge: 60 * 60 * 24 * 7, // 7 days
   });
 
   return {
     success: true,
-    message: "Вход выполнен",
+    message: "Succesfully login",
     user: {
       id: user.id,
       email: user.email,
       name: user.name ?? null,
       roleId: user.roleId,
     },
+  };
+}
+
+export async function registration(email: string, password: string) {
+  const testUser = getUserByEmail(email);
+
+  if (!testUser) {
+    return {
+      success: false,
+      message: "Account exists, try signin again",
+      error: "ACCOUNT_EXISTS",
+    };
+  }
+
+  const hashedPassword = await hashPassword(password);
+
+  const user = createNewUser(email, hashedPassword);
+
+  return {
+    success: true,
+    message: "Succesfully login",
   };
 }
