@@ -119,9 +119,9 @@ export async function login(email: string, password: string) {
 }
 
 export async function registration(email: string, password: string) {
-  const testUser = getUserByEmail(email);
+  const testUser = await getUserByEmail(email);
 
-  if (!testUser) {
+  if (testUser) {
     return {
       success: false,
       message: "Account exists, try signin again",
