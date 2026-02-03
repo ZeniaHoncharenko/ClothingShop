@@ -1,7 +1,6 @@
 import { cache } from "react";
 import { prisma } from "./prisma";
 import { ActionResponse } from "@/actions/auth";
-export const getCurrentUser = cache(async () => {});
 
 export const getUserByEmail = cache(async (email: string) => {
   try {

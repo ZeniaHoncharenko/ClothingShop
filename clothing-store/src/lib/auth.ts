@@ -16,6 +16,31 @@ interface JWTPayload {
 
 const JWT_SECRET = new TextEncoder().encode(process.env.JWT_SECRET);
 
+export const getCurrentUser = cache(async () => {
+  const session = await getSession();
+  if (!session) return null;
+
+  if (
+    typeof window === "undefined" &&
+    process.env.NEXT_PHASE === "phase-production-build"
+  ) {
+    return null;
+  }
+
+  try {
+    const result = await prisma.user.findFirst({
+      where: {
+        id: parseInt(session.userId),
+      },
+    });
+
+    return result || null;
+  } catch (error) {
+    console.error("Error getting user by ID:", error);
+    return null;
+  }
+});
+
 export async function hashPassword(password: string) {
   return hash(password, 10);
 }
