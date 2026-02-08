@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: __dirname,
   },
-  cacheComponents: true,
+  cacheComponents: false,
 };
 
 export default nextConfig;

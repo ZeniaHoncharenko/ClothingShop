@@ -1,3 +1,4 @@
+import "server-only";
 import * as jose from "jose";
 import { cache } from "react";
 import { compare, hash } from "bcrypt";
