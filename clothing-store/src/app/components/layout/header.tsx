@@ -1,26 +1,25 @@
 import Image from "next/image";
-import "./header.css";
 import Link from "next/link";
 
 export default function Header() {
   return (
     <header>
-      <div className="header">
-        <div className="main-site-logo">
+      <div className="grid grid-cols-4 p-2">
+        <div className="text-2xl font-bold pl-2">
           <h1>SHOP.CO</h1>
         </div>
-        <div className="navigation">
+        <div className="">
           <nav>
-            <ul className="nav-links">
-              <li>Shop</li>
-              <li>On Sale</li>
-              <li>New Arrivals</li>
-              <li>Brands</li>
+            <ul className="grid grid-cols-4 gap-0.5">
+              <li className="p-0.5">Shop</li>
+              <li className="p-0.5">On Sale</li>
+              <li className="p-0.5">New Arrivals</li>
+              <li className="p-0.5">Brands</li>
             </ul>
           </nav>
         </div>
-        <div className="search-bar">
-          <span className="search-icon">
+        <div className="flex items-center bg-gray-200 rounded-4xl px-3 h-10 gap-2">
+          <span className="flex items-center justify-center shrink-0">
             <Image
               src="/search_bar_icon.png"
               alt="Search"
@@ -31,10 +30,10 @@ export default function Header() {
           <input
             type="text"
             placeholder="Search for products..."
-            className="search-input"
+            className="flex-1 bg-transparent outline-none placeholder:text-gray-500"
           />
         </div>
-        <div className="nav-logos">
+        <div className="">
           <div className="shopping-cart-short">
             <span className="cart-icon">
               <Image

@@ -1,0 +1,8 @@
+{
+  "tailwindCSS.experimental.configFile": "C:\\Users\\irosh\\Documents\\ClothingShop\\clothing-store\\tailwind.config.ts",
+  "tailwindCSS.nodePath": "C:\\Users\\irosh\\Documents\\ClothingShop\\clothing-store\\node_modules",
+  "tailwindCSS.includeLanguages": {
+    "typescript": "javascript",
+    "typescriptreact": "javascript"
+  }
+}

@@ -1,5 +1,4 @@
 import Link from "next/link";
-import "./sidebar.css";
 
 export default function DashboardSidebar() {
   return (

@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { footerData } from "./footer.data";
 import FooterColumn from "./footerColumn";
-import "./footer.css";
 
 export default function Footer() {
   return (

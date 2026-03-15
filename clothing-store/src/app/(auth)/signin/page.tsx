@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import "./signin.css";
 import { signIn } from "@/actions/auth";
 import { toast } from "sonner";
 
