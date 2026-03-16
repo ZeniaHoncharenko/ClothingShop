@@ -3,9 +3,9 @@ import Footer from "./components/layout/footer";
 
 export default function Home() {
   return (
-    <div className="home">
+    <div className="min-h-screen flex flex-col">
       <Header />
-      <h1>Clothing Store</h1>
+      <main className="flex-1" />
       <Footer />
     </div>
   );

@@ -4,13 +4,13 @@ import Link from "next/link";
 export default function Header() {
   return (
     <header>
-      <div className="grid grid-cols-4 p-2">
+      <div className="grid items-center grid-cols-[0.6fr_0.8fr_1fr_0.1fr] gap-2 px-11 py-5.5">
         <div className="text-2xl font-bold pl-2">
           <h1>SHOP.CO</h1>
         </div>
         <div className="">
           <nav>
-            <ul className="grid grid-cols-4 gap-0.5">
+            <ul className="grid items-center grid-cols-4 gap-0.5">
               <li className="p-0.5">Shop</li>
               <li className="p-0.5">On Sale</li>
               <li className="p-0.5">New Arrivals</li>
@@ -18,7 +18,7 @@ export default function Header() {
             </ul>
           </nav>
         </div>
-        <div className="flex items-center bg-gray-200 rounded-4xl px-3 h-10 gap-2">
+        <div className="flex items-center bg-gray-200 rounded-4xl px-4 h-10 gap-2">
           <span className="flex items-center justify-center shrink-0">
             <Image
               src="/search_bar_icon.png"
@@ -33,7 +33,7 @@ export default function Header() {
             className="flex-1 bg-transparent outline-none placeholder:text-gray-500"
           />
         </div>
-        <div className="">
+        <div className="grid items-center grid-cols-2 gap-0.5 px-2">
           <div className="shopping-cart-short">
             <span className="cart-icon">
               <Image
