@@ -15,6 +15,9 @@ model User {
   roleId    Int
   createdAt DateTime @default(now())
 
+  profile   UserProfile?
+  addresses Address[]
+
   comments  Comment[]
   ratings   Rating[]
   orders    Order[]
@@ -24,6 +27,42 @@ model Role {
   id    Int    @id @default(autoincrement())
   name  String @unique
   users User[]
+}
+
+model UserProfile {
+  id          Int       @id @default(autoincrement())
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId      Int       @unique
+  birthDate   DateTime?
+  gender      Gender?
+  countryCode String?
+  phone       String?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model Address {
+  id          Int      @id @default(autoincrement())
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId      Int
+  label       String?
+  recipient   String?
+  line1       String
+  line2       String?
+  city        String
+  region      String?
+  postalCode  String?
+  countryCode String
+  isDefault   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+enum Gender {
+  MALE
+  FEMALE
+  OTHER
+  PREFER_NOT_TO_SAY
 }
 
 model Product {

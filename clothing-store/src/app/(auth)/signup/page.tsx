@@ -16,43 +16,57 @@ export default function SignUpPage() {
     }
   }
   return (
-    <div className="signup">
-      <div className="signup-card">
-        <h1>Create a new account</h1>
+    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+      <form
+        action={handleSignUp}
+        className="grid w-full max-w-md grid-cols-1 grid-rows-[auto_auto_auto_auto_auto] gap-4 rounded-2xl bg-white p-8 shadow-2xl"
+      >
+        <h1 className="text-2xl font-semibold">Create a new account</h1>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Enter user email"
+          className="w-full rounded-md border border-gray-300 px-3 py-2 outline-none focus:border-gray-500"
+          required
+        />
+        <input
+          type="email"
+          name="email confirm"
+          id="email confirm"
+          placeholder="Confirm the email"
+          className="w-full rounded-md border border-gray-300 px-3 py-2 outline-none focus:border-gray-500"
+          required
+        />
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="Pasword"
+          className="w-full rounded-md border border-gray-300 px-3 py-2 outline-none focus:border-gray-500"
+          required
+        />
 
-        <form action={handleSignUp}>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            placeholder="Enter user email"
-            required
-          />
-          <input
-            type="email"
-            name="email confirm"
-            id="email confirm"
-            placeholder="Confirm the email"
-            required
-          />
-          <input
-            type="password"
-            name="password"
-            id="password"
-            placeholder="Pasword"
-            required
-          />
+        <div className="text-sm text-gray-600">
+          <button
+            type="submit"
+            className="w-full rounded-md bg-black px-4 py-2 text-white transition-opacity hover:opacity-90"
+          >
+            Create
+          </button>
+        </div>
 
-          <div className="signup-button">
-            <button type="submit">Create</button>
-          </div>
-
-          <div className="signup-register-link">
-            Already have and account?
-            <Link href="/signin"> Sign In</Link>
-          </div>
-        </form>
-      </div>
+        <div className="text-sm text-gray-600">
+          Already have and account?
+          <Link
+            href="/signin"
+            className="font-medium text-black hover:text-gray-600"
+          >
+            {" "}
+            Sign In
+          </Link>
+        </div>
+      </form>
     </div>
   );
 }
