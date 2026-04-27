@@ -3,6 +3,7 @@
 import { z } from "zod";
 import { login, registration, validateEmail } from "../lib/auth";
 import { redirect } from "next/navigation";
+import { cookies } from "next/headers";
 
 const SignInSchema = z.object({
   email: z.string().email(),
@@ -93,4 +94,11 @@ export async function signUp(formData: FormData): Promise<ActionResponse> {
     success: true,
     message: "Signed in successfully",
   };
+}
+
+export async function signOut() {
+  const cookieStore = await cookies();
+  cookieStore.delete("auth_token");
+
+  redirect("/signin");
 }
