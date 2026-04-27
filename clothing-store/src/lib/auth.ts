@@ -29,9 +29,13 @@ export const getCurrentUser = cache(async () => {
   }
 
   try {
-    const result = await prisma.user.findFirst({
-      where: {
-        id: parseInt(session.userId),
+    const userId = Number(session.userId);
+    if (!Number.isInteger(userId)) return null;
+
+    const result = await prisma.user.findUnique({
+      where: { id: userId },
+      include: {
+        profile: true,
       },
     });
 

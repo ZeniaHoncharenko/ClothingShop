@@ -18,7 +18,7 @@ export default function DashboardSidebar() {
   const isActive = (href: string) => pathname.includes(href);
 
   return (
-    <aside className="w-64 h-screen bg-white border-r border-gray-200 flex flex-col sticky top-0">
+    <aside className=" w-64 h-screen bg-grey-50 border-r border-gray-200 flex flex-col sticky top-0">
       {/* Header */}
       <div className="px-6 py-8 border-b border-gray-100">
         <h1 className="text-2xl font-bold text-black">
@@ -69,14 +69,14 @@ export default function DashboardSidebar() {
           </h2>
           <ul className="space-y-1">
             <NavLink
-              href="/dashboard/products/new"
-              active={isActive("/products/new")}
+              href="/dashboard/product/new"
+              active={isActive("/product/new")}
               icon={<Plus size={18} />}
               label="Add Product"
             />
             <NavLink
-              href="/dashboard/products/edit"
-              active={isActive("/products/edit")}
+              href="/dashboard/product/edit"
+              active={isActive("/product/edit")}
               icon={<Edit size={18} />}
               label="Edit Products"
             />
